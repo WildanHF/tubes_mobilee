@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tubes/sreens/facebook.dart';
+import 'package:tubes/sreens/google.dart';
 import 'package:tubes/sreens/lupa.dart';
 import 'package:tubes/sreens/opening.dart';
 import 'package:tubes/sreens/registrasi.dart';
@@ -270,7 +271,14 @@ class _LoginPageState extends State<LoginPage> {
                         foregroundColor: Color.fromARGB(255, 0, 0, 0),
                         side: BorderSide(color: Colors.grey, width: 1),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Google(),
+                          ),
+                        );
+                      },
                       child: Row(
                         children: [
                           Image.asset(

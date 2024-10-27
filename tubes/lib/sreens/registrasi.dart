@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tubes/sreens/google.dart';
 import 'package:tubes/sreens/lupa.dart';
 import 'package:tubes/sreens/opening.dart';
-import 'login.dart';
+import 'package:tubes/sreens/login.dart';
 import 'package:tubes/sreens/facebook.dart';
 import 'package:cool_alert/cool_alert.dart';
 
@@ -249,15 +250,15 @@ class _RegisterState extends State<Registrasi> {
                           type: CoolAlertType.success,
                           text: "Account",
                           onConfirmBtnTap: () {
-                            // Berpindah ke halaman login setelah CoolAlert ditutup
-                            Navigator.pop(context);
-
-                            // Berpindah ke halaman login setelah CoolAlert ditutup
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginPage()),
-                            );
+                            // Ganti dengan delay untuk memberikan efek transisi
+                            Future.delayed(Duration(seconds: 0), () {
+                              // Berpindah ke halaman login setelah CoolAlert ditutup
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()),
+                              );
+                            });
                           },
                         );
                       }
@@ -317,7 +318,14 @@ class _RegisterState extends State<Registrasi> {
                           foregroundColor: Color.fromARGB(255, 0, 0, 0),
                           side: BorderSide(color: Colors.grey, width: 1),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Google(),
+                            ),
+                          );
+                        },
                         child: Row(
                           children: [
                             Image.asset(
