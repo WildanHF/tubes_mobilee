@@ -62,6 +62,12 @@ flutter:
     - assets/images/meta.png
     - assets/images/facebook2.png
     - assets/images/lapar.png
+    - assets/images/ShopeePay2.png
+    - assets/images/gopay.png
+    - assets/images/qris.png
+    - assets/images/bca.png
+    - assets/images/bni.webp
+    - assets/images/dana.png
 
   fonts:
     - family: ZhiMangXing
