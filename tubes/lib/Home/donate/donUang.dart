@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubes/Home/donate/payment.dart';
 
 class Donuang extends StatelessWidget {
   @override
@@ -229,7 +230,16 @@ class donInput extends StatelessWidget{
                 color: Colors.yellow,
                 borderRadius: BorderRadius.circular(20)
               ),
-              child: const Padding(padding: EdgeInsets.only(left: 47,top: 10),
+              child: TextButton(
+                onPressed:() {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Payment()),
+              );
+              
+              },
+              
+              child: const Center(
               child: Text('Bayar',
               style: TextStyle(
                 fontSize: 20,
@@ -237,6 +247,8 @@ class donInput extends StatelessWidget{
               ),
               ),
               ),
+              
+              )
             ),
           ),
 
