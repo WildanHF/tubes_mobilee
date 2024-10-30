@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+
+import 'package:tubes/Home/Historypage.dart';
+
 import 'package:tubes/sreens/facebook.dart';
+
 import 'package:tubes/sreens/lupa.dart';
 import 'package:tubes/sreens/registrasi.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
@@ -18,6 +23,16 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+
+  void _launchFacebook() async {
+    const url =
+        'https://www.facebook.com/YourPage'; // Ganti dengan URL halaman Facebook Anda
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -182,9 +197,18 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(top: 10, right: 20, left: 20),
                 child: ElevatedButton(
                   onPressed: () {
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Historypage(),
+                      ),
+                    );
+
                     // Logika untuk memverifikasi login
                     // Jika login berhasil, navigasi ke Navbar
                     Navigator.pushReplacementNamed(context, '/main');
+
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 253, 194, 0)),
@@ -304,14 +328,8 @@ class _LoginPageState extends State<LoginPage> {
                           foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                           side: const BorderSide(color: Colors.grey, width: 1),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => facebookPage(),
-                            ),
-                          );
-                        },
+                        onPressed:
+                            _launchFacebook, // Memanggil fungsi ketika ditekan
                         child: Row(
                           children: [
                             Image.asset(
@@ -321,7 +339,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const Expanded(
                               child: Text(
-                                'Facebokk',
+                                'Facebook',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 15,

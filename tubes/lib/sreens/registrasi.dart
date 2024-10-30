@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tubes/sreens/google.dart';
 import 'package:tubes/sreens/lupa.dart';
 import 'package:tubes/sreens/opening.dart';
 import 'package:tubes/sreens/login.dart';
-import 'package:tubes/sreens/facebook.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Registrasi extends StatefulWidget {
   const Registrasi({super.key});
@@ -18,6 +17,16 @@ class _RegisterState extends State<Registrasi> {
   final TextEditingController newPasswordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  void _launchFacebook() async {
+    const url =
+        'https://www.facebook.com/YourPage'; // Ganti dengan URL halaman Facebook Anda
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -318,14 +327,7 @@ class _RegisterState extends State<Registrasi> {
                           foregroundColor: Color.fromARGB(255, 0, 0, 0),
                           side: BorderSide(color: Colors.grey, width: 1),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Google(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                         child: Row(
                           children: [
                             Image.asset(
@@ -355,19 +357,13 @@ class _RegisterState extends State<Registrasi> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 0),
                         child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => facebookPage(),
-                              ),
-                            );
-                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 255, 255, 255),
                             foregroundColor: Color.fromARGB(255, 0, 0, 0),
                             side: BorderSide(color: Colors.grey, width: 1),
                           ),
+                          onPressed:
+                              _launchFacebook, // Memanggil fungsi ketika ditekan
                           child: Row(
                             children: [
                               Image.asset(
