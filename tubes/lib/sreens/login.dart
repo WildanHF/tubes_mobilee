@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:tubes/Home/Historypage.dart';
+
+import 'package:tubes/sreens/facebook.dart';
+
 import 'package:tubes/sreens/lupa.dart';
-import 'package:tubes/sreens/opening.dart';
 import 'package:tubes/sreens/registrasi.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cool_alert/cool_alert.dart';
@@ -37,13 +40,13 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Registrasi()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Registrasi()));
           },
         ),
       ),
@@ -54,7 +57,8 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment:
                 MainAxisAlignment.start, // Mengatur agar konten berada di atas
             children: [
-              SizedBox(height: 0), // Menambahkan ruang di atas jika diperlukan
+              const SizedBox(
+                  height: 0), // Menambahkan ruang di atas jika diperlukan
               Stack(
                 alignment:
                     Alignment.center, // Menempatkan teks di tengah gambar
@@ -64,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 160, // Sesuaikan ukuran gambar
                     height: 164,
                   ),
-                  Text(
+                  const Text(
                     'LAPER\nPAK!!!', // Teks yang akan ditampilkan di atas gambar
                     textAlign: TextAlign.center, // Menyelaraskan teks di tengah
                     style: TextStyle(
@@ -84,10 +88,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 16),
+              const Padding(
+                padding: EdgeInsets.only(left: 16),
                 child: Text(
                   'LOGIN',
                   style: TextStyle(
@@ -97,10 +101,10 @@ class _LoginPageState extends State<LoginPage> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(height: 0),
+              const SizedBox(height: 0),
 
-              Padding(
-                padding: const EdgeInsets.only(
+              const Padding(
+                padding: EdgeInsets.only(
                     right: 16,
                     left: 16,
                     top: 20), // Menambahkan padding di semua sisi
@@ -134,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     hintText: 'Username',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontFamily: 'poppins',
                       fontSize: 12,
                       color: Color.fromARGB(255, 152, 152, 152),
@@ -143,8 +147,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(
+              const Padding(
+                padding: EdgeInsets.only(
                     right: 16,
                     left: 16,
                     top: 10), // Menambahkan padding di semua sisi
@@ -180,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     hintText: 'Password',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontFamily: 'poppins',
                       fontSize: 12,
                       color: Color.fromARGB(255, 152, 152, 152),
@@ -193,16 +197,22 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(top: 10, right: 20, left: 20),
                 child: ElevatedButton(
                   onPressed: () {
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => Historypage(),
                       ),
                     );
+
+                    // Logika untuk memverifikasi login
+                    // Jika login berhasil, navigasi ke Navbar
+                    Navigator.pushReplacementNamed(context, '/main');
+
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 253, 194, 0)),
-                  child: Text(
+                      backgroundColor: const Color.fromARGB(255, 253, 194, 0)),
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                         fontFamily: 'poppins',
@@ -218,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                   textAlign: TextAlign.start, // Agar teks berada di tengah
                   text: TextSpan(
                     text: 'Forget Password',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 12,
                       color:
@@ -238,18 +248,18 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
+              const Padding(
+                padding: EdgeInsets.only(left: 30, right: 30),
                 child: Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Divider(
                         thickness: 2.0,
                         color: Color.fromARGB(252, 217, 217, 217),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 30),
+                      padding: EdgeInsets.only(top: 30),
                       child: Text(
                         'or',
                         style: TextStyle(
@@ -272,14 +282,15 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment
                     .spaceEvenly, // Menyebarkan tombol secara merata
                 children: [
-                  Container(
+                  SizedBox(
                     width: 150, // Atur lebar sesuai kebutuhan
                     height: 50,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                        foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                        side: BorderSide(color: Colors.grey, width: 1),
+                        backgroundColor:
+                            const Color.fromARGB(255, 255, 255, 255),
+                        foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                        side: const BorderSide(color: Colors.grey, width: 1),
                       ),
                       onPressed: () {},
                       child: Row(
@@ -289,7 +300,7 @@ class _LoginPageState extends State<LoginPage> {
                             width: 24,
                             height: 24,
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.only(left: 10, top: 5),
                             child: Text(
                               'Google',
@@ -305,16 +316,17 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 150, // Atur lebar sesuai kebutuhan
                     height: 50,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                          foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                          side: BorderSide(color: Colors.grey, width: 1),
+                          backgroundColor:
+                              const Color.fromARGB(255, 255, 255, 255),
+                          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                          side: const BorderSide(color: Colors.grey, width: 1),
                         ),
                         onPressed:
                             _launchFacebook, // Memanggil fungsi ketika ditekan
@@ -325,7 +337,7 @@ class _LoginPageState extends State<LoginPage> {
                               width: 24,
                               height: 24,
                             ),
-                            Expanded(
+                            const Expanded(
                               child: Text(
                                 'Facebook',
                                 style: TextStyle(
