@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tubes/Home/Historypage.dart';
 import 'package:tubes/Home/Homepage.dart';
-import 'package:tubes/home/Profilepage.dart';
+import 'package:tubes/Home/Profilepage.dart';
 import 'package:tubes/sreens/login.dart';
 import 'package:tubes/sreens/registrasi.dart';
 import 'package:tubes/sreens/opening.dart';

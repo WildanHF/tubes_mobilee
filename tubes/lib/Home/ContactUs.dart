@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubes/Home/Profilepage.dart';
 
 class ContactUs extends StatelessWidget {
   const ContactUs({super.key});
@@ -42,8 +43,10 @@ class ContactUsPage extends StatelessWidget {
             leading: IconButton(
               icon: const Icon(Icons.arrow_back), // Ikon panah kembali
               onPressed: () {
-                Navigator.pop(
-                    context); // Aksi kembali ke halaman sebelumnya (ProfilePage)
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profilepage()),
+                ); // Kembali ke halaman sebelumnya (ProfilePage)
               },
             ),
             backgroundColor: Colors.white, // Warna background AppBar
