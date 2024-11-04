@@ -228,21 +228,32 @@ class Lupa extends StatelessWidget {
                       // Memeriksa apakah password baru sama dengan konfirmasi password
                       if (newPasswordController.text !=
                           confirmPasswordController.text) {
+                        // Tampilkan snackbar untuk notifikasi kesalahan
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Passwords do not match!'),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
                         CoolAlert.show(
                           context: context,
                           type: CoolAlertType.error,
                           text: "Passwords do not match!",
                         );
                       } else {
+                        // Tampilkan snackbar untuk notifikasi keberhasilan
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Password changed successfully!'),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
                         CoolAlert.show(
                           context: context,
                           type: CoolAlertType.success,
                           text: "Password changed successfully",
                           onConfirmBtnTap: () {
-                            // Menutup CoolAlert terlebih dahulu
                             Navigator.pop(context);
-
-                            // Berpindah ke halaman login setelah CoolAlert ditutup
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
